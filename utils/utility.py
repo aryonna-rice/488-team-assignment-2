@@ -118,3 +118,7 @@ def to_datetime(df, columns):
   for column in columns:
     df[column] = pd.to_datetime(df[column], format=date_format)
   return df
+
+def get_numerical_columns(df):
+  """Returns a list of columns in a dataframe that have "object" as their type."""
+  return df.select_dtypes(include='float').columns.tolist()
