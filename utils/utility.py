@@ -35,7 +35,7 @@ def visualize_numerical_variables(df):
       plt.show()
       
 
-def get_category_columns(df):
+def get_object_columns(df):
   """Returns a list of columns in a dataframe that have "object" as their type."""
   return df.select_dtypes(include='object').columns.tolist()
 
@@ -50,7 +50,7 @@ def display_value_counts(df, columns):
 def calculate_roi(df):
   # Assuming 'df' is your DataFrame
   df['total_received'] = df['total_pymnt'] + df['recoveries'] - df['collection_recovery_fee']
-  df['ROI'] = ((df['total_received'] - df['funded_amnt']) / df['funded_amnt']) * 100
+  df['ROI'] = ((df['total_received'] - df['funded_amnt']) / df['funded_amnt'].replace(0, np.nan)) * 100
   return df
 
 def drop_nan(df, columns):
@@ -65,11 +65,11 @@ def to_categorical(df, columns):
     df[column] = df[column].astype('category')
   return df
 
-def normalize_skewed_features(log_df, skewed_features):
-  log_numerical_features=[]
-  for f in skewed_features:
-    log_df[f + '_log']=np.log1p(log_df[f])
-    log_numerical_features.append(f + '_log')
+def fix_skewed_features(arcsinh_df, skewed_features):
+    for f in skewed_features:
+        arcsinh_df[f + '_arcsinh'] = np.arcsinh(arcsinh_df[f])
+    arcsinh_df.drop(columns=skewed_features, inplace=True)
+    return arcsinh_df
     
 def scale_numeric(data, numeric_columns, scaler):
     for col in numeric_columns:
@@ -121,4 +121,18 @@ def to_datetime(df, columns):
 
 def get_numerical_columns(df):
   """Returns a list of columns in a dataframe that have "object" as their type."""
-  return df.select_dtypes(include='float').columns.tolist()
+  return [col for col in df.columns if df[col].dtype == 'float64']
+
+def get_category_columns(df):
+  """Returns a list of columns in a dataframe that have "category" as their type."""
+  return df.select_dtypes(include='category').columns.tolist()
+
+def one_hot_encode(df, columns_to_encode):
+  df_without_columns_to_encode = df.drop(columns_to_encode, axis=1)
+  encoded_df = pd.DataFrame()
+  for column in columns_to_encode:
+    encoded_columns = pd.get_dummies(df[column], prefix=column)
+    encoded_df = pd.concat([encoded_df, encoded_columns], axis=1)
+  final_df = pd.concat([df_without_columns_to_encode, encoded_df], axis=1)
+  return final_df
+  
