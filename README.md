@@ -5,20 +5,18 @@ In this project, we were tasked with developing a data-driven investment strateg
 
 ## Project Structure
 /488env
+
 /cross-val-results
 ┃   ┗📜 rfc_reduced_results.txt
-
-┣ 📂 eeg_pretain
-┃   ┗ 📜 checkpoint.pth  (pre-trained EEG encoder)
 
 /data
 ┣ 📂 LendingClub
 ┣ 📂 raw_data
-    ┗  📜 features.joblib
-    ┗  📜 target.joblib
+┃   ┗  📜 features.joblib
+┃   ┗  📜 target.joblib
 ┣ 📂 train_data
-    ┗  📜 features.joblib
-    ┗  📜 target.joblib
+┃   ┗  📜 features.joblib
+┃   ┗  📜 target.joblib
 ┗  📜 selected_features.json
 
 /imputers
@@ -26,20 +24,20 @@ In this project, we were tasked with developing a data-driven investment strateg
 ┃   ┗ 📜 numeric_data.py
 
 /models
-  ┗  📜 rfc_reduced_data.joblib
+┃  ┗  📜 rfc_reduced_data.joblib
 
 /notebooks
-  ┗  📜 roi-classification-notebook.ipynb
+┃  ┗  📜 roi-classification-notebook.ipynb
   
 /slurm-scripts
-  ┗ 📜 cross_val.sh        (SLURM script for cross-validation)
-  ┗ 📜 rfc.sh              (SLURM script for RandomForestClassifier training)
+┃  ┗ 📜 cross_val.sh        (SLURM script for cross-validation)
+┃  ┗ 📜 rfc.sh              (SLURM script for RandomForestClassifier training)
   
 /training-scripts
 ┃   ┗ 📜 cross_val.py      (Main script for cross-validation)
-    ┗ 📜 rfc.py            (Main script for RandomForestClassifier training)
+┃   ┗ 📜 rfc.py            (Main script for RandomForestClassifier training)
     
 /utils
-  ┗ 📜 utility.py
+┃  ┗ 📜 utility.py
 
 
