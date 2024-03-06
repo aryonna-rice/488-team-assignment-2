@@ -5,7 +5,7 @@ In this project, we were tasked with developing a data-driven investment strateg
 
 ## Project Directory Structure
 The contents of the data folder and models folder are not included in this repository. Please download them from the team's drive `[here](https://drive.google.com/drive/folders/19UleGzYyksu3571awwAyb2PPmgxvzLij?usp=drive_link)` and put them in the correct places in this repository as shown below. 
-* Add image here *
+![Layout Image](layout.png)
 
 ## Environment Setup
 This project was developed using Python and Jupyter notebooks. To replicate our environment, please follow these steps:
