@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=general
-#SBATCH --time=15:00:00  # Adjust based on your estimation of job completion time
+#SBATCH --time=2:00:00  # Adjust based on your estimation of job completion time
 #SBATCH --mem=128G  # Adjust based on the node selection and your job's memory requirement
 #SBATCH --cpus-per-task=48  # Adjust to leverage parallel computation
 #SBATCH --mail-type=all
