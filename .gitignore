@@ -1,3 +1,4 @@
 data/*
 !data/.gitkeep
 488env/
+*.joblib
