@@ -77,7 +77,7 @@ def scale_numeric(data, numeric_columns, scaler):
     return data
   
 def get_outliers(data, columns, nsd = 3):
-    """ Takes a data frame and list of numeric columns names, return the list of indices for which
+    """Takes a data frame and list of numeric columns names, return the list of indices for which
     a value in any of the columns is more than nsd standard deviations from the column mean."""
     outlier_idxs = []
     for col in set(data.columns).intersection(set(columns)):

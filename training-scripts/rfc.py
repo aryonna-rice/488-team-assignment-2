@@ -7,8 +7,8 @@ import numpy as np
 import json
 
 # Define paths
-X_train_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/train_data/all_data/features.joblib'
-y_train_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/train_data/all_data/target.joblib'
+X_train_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/train_data/features.joblib'
+y_train_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/train_data/target.joblib'
 checkpoint_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/models/grid_search_checkpoint.joblib'
 final_model_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/models/rfc_reduced_data.joblib'
 
