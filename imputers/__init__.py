@@ -1,4 +1,2 @@
 from .earliest_cr_line_d import EarliestCRLineDateImputer
-from .latest_credit_pull_d import LatestCreditPullDateImputer
-from .last_pymnt_d import LastPaymentDateImputer
 from .numeric_data import NumericDataImputer

@@ -5,25 +5,19 @@ class EarliestCRLineDateImputer(BaseEstimator, TransformerMixin):
         self.issue_d_column = issue_d_column
 
     def fit(self, X, y=None):
-        # Calculate the median earliest_cr_line for each FICO score condition
-        self.median_high_fico_ = X.loc[X['fico_range_high'].notna(), 'earliest_cr_line'].median()
-        self.median_low_fico_ = X.loc[X['fico_range_low'].notna(), 'earliest_cr_line'].median()
+        # Group by fico_descriptor and calculate the median earliest_cr_line for each group
+        self.medians_by_fico_descriptor_ = X.groupby('fico_descriptor')['earliest_cr_line'].median()
         return self
 
     def transform(self, X):
         X = X.copy()
+        # Impute earliest_cr_line based on fico_descriptor group's median
+        for fico_descriptor, median in self.medians_by_fico_descriptor_.items():
+            condition = (X['fico_descriptor'] == fico_descriptor) & X['earliest_cr_line'].isna()
+            X.loc[condition, 'earliest_cr_line'] = median
         
-        # Condition 1: If both FICO scores are NaN, impute earliest_cr_line with issue_d
-        condition_no_fico = X['fico_range_high'].isna() & X['fico_range_low'].isna()
-        X.loc[condition_no_fico, 'earliest_cr_line'] = X.loc[condition_no_fico, self.issue_d_column]
+        # For rows with a null fico_descriptor, assign earliest_cr_line the value of issue_d
+        condition_null_fico = X['fico_descriptor'].isna() & X['earliest_cr_line'].isna()
+        X.loc[condition_null_fico, 'earliest_cr_line'] = X.loc[condition_null_fico, self.issue_d_column]
         
-        # Condition 2: Impute based on FICO score presence
-        # For rows with a high FICO score
-        condition_high_fico = X['fico_range_high'].notna() & X['earliest_cr_line'].isna()
-        X.loc[condition_high_fico, 'earliest_cr_line'] = self.median_high_fico_
-        
-        # For rows with a low FICO score (if distinct logic is needed)
-        condition_low_fico = X['fico_range_low'].notna() & X['earliest_cr_line'].isna()
-        X.loc[condition_low_fico, 'earliest_cr_line'] = self.median_low_fico_
-
         return X

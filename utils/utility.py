@@ -12,7 +12,7 @@ def drop_null_columns(df):
   total_samples = len(df)
   drop_columns = non_null_counts[non_null_counts < (total_samples / 2)].index
   df.drop(drop_columns, axis=1, inplace=True)
-  return df
+  return df, drop_columns
 
 def visualize_numerical_variables(df):
   """Creates histograms and boxplots for all numerical variables in a Pandas DataFrame."""
@@ -50,7 +50,7 @@ def display_value_counts(df, columns):
 def calculate_roi(df):
   # Assuming 'df' is your DataFrame
   df['total_received'] = df['total_pymnt'] + df['recoveries'] - df['collection_recovery_fee']
-  df['ROI'] = ((df['total_received'] - df['funded_amnt']) / df['funded_amnt'].replace(0, np.nan)) * 100
+  df['ROI'] = ((df['total_received'] - df['funded_amnt_log']) / df['funded_amnt_log'].replace(0, np.nan)) * 100
   return df
 
 def drop_nan(df, columns):
@@ -65,11 +65,11 @@ def to_categorical(df, columns):
     df[column] = df[column].astype('category')
   return df
 
-def fix_skewed_features(arcsinh_df, skewed_features):
+def fix_skewed_features(log_df, skewed_features):
     for f in skewed_features:
-        arcsinh_df[f + '_arcsinh'] = np.arcsinh(arcsinh_df[f])
-    arcsinh_df.drop(columns=skewed_features, inplace=True)
-    return arcsinh_df
+      log_df[f + '_log']=np.log1p(log_df[f])
+    log_df.drop(columns=skewed_features, inplace=True)
+    return log_df
     
 def scale_numeric(data, numeric_columns, scaler):
     for col in numeric_columns:
@@ -136,3 +136,43 @@ def one_hot_encode(df, columns_to_encode):
   final_df = pd.concat([df_without_columns_to_encode, encoded_df], axis=1)
   return final_df
   
+def get_fico_descriptor(df):
+    # Calculate the average of fico_range_high and fico_range_low
+    df['average_fico'] = (df['fico_range_high'] + df['fico_range_low']) / 2
+    # Function to assign descriptor based on average_fico
+    def assign_descriptor(fico_score):
+        if fico_score < 580:
+            return 'Very Poor'
+        elif fico_score >= 580 and fico_score < 670:
+            return 'Fair'
+        elif fico_score >= 670 and fico_score < 740:
+            return 'Good'
+        elif fico_score >= 740 and fico_score < 800:
+            return 'Very Good'
+        else:
+            return 'Exceptional'
+    
+    # Apply the function to assign descriptors
+    df['fico_descriptor'] = df['average_fico'].apply(assign_descriptor)
+    
+    # Drop the temporary average_fico column if you don't need it
+    df.drop(columns=['average_fico', 'fico_range_high', 'fico_range_low'], inplace=True)
+    
+    return df
+  
+def get_roi_descriptor(df):
+    # Define thresholds for simplicity, these could be adjusted based on specific criteria or analysis
+    thresholds = {'High': 15, 'Medium': 10, 'Low': 0}
+    
+    # Function to categorize ROI
+    def categorize_roi(roi):
+        if roi >= thresholds['High']:
+            return 'High'
+        elif roi >= thresholds['Medium']:
+            return 'Medium'
+        else:
+            return 'Low'
+    
+    # Apply the categorization function to the ROI column
+    df['ROI_descriptor'] = df['ROI'].apply(categorize_roi)
+    return df
