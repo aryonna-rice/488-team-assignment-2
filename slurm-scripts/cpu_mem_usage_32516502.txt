@@ -515,3 +515,39 @@ Linux 4.18.0-477.27.1.el8_8.x86_64 (c0306.ll.unc.edu) 	03/05/2024 	_x86_64_	(72 
 
 10:40:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
 10:41:51 PM  22909796 735776212 767736976     97.10      5252 748295368  15216560      1.92 274145448 485991888      8364
+
+10:41:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:42:51 PM     all     23.99     27.44      0.61      0.00      0.00     47.96
+
+10:41:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:42:51 PM  22907564 735768664 767739208     97.10      5252 748290096  15221284      1.92 274146492 485991504      1004
+
+10:42:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:43:51 PM     all     22.58     27.37      0.57      0.00      0.00     49.48
+
+10:42:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:43:51 PM  22902024 735761528 767744748     97.10      5252 748288556  15164148      1.91 274147248 485998120      4216
+
+10:43:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:44:51 PM     all     24.35     27.45      0.61      0.00      0.00     47.59
+
+10:43:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:44:51 PM  22892528 735748040 767754244     97.10      5252 748284592  15258396      1.92 274147332 486006780         0
+
+10:44:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:45:51 PM     all     23.80     27.38      0.65      0.00      0.00     48.17
+
+10:44:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:45:51 PM  22865036 735720816 767781736     97.11      5252 748284948  15190616      1.92 274147448 486033044         4
+
+10:45:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:46:51 PM     all     24.63     27.41      0.61      0.00      0.00     47.36
+
+10:45:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:46:51 PM  22846780 735702704 767799992     97.11      5252 748285128  15311336      1.93 274147496 486052440         8
+
+10:46:51 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:47:51 PM     all     24.71     26.68      0.73      0.00      0.00     47.87
+
+10:46:51 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:47:51 PM  21884892 734769288 768761880     97.23      5252 748313712  16199036      2.04 274147648 487011092         4

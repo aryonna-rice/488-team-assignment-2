@@ -1301,3 +1301,33 @@ Linux 4.18.0-477.27.1.el8_8.x86_64 (c0305.ll.unc.edu) 	03/05/2024 	_x86_64_	(72 
 
 10:41:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
 10:42:04 PM  73233796 682218964 717421108     90.74      5392 644397404  66320192      8.37 215032008 494789728         8
+
+10:42:04 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:43:04 PM     all      1.39      0.00      0.03      0.00      0.00     98.58
+
+10:42:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:43:04 PM  73235488 682220656 717419416     90.74      5392 644397408  66320192      8.37 215032008 494789724         0
+
+10:43:04 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:44:04 PM     all      1.40      0.00      0.03      0.00      0.00     98.56
+
+10:43:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:44:04 PM  73236240 682221412 717418664     90.74      5392 644397424  66410152      8.38 215032024 494789728         4
+
+10:44:04 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:45:04 PM     all      1.39      0.00      0.03      0.00      0.00     98.58
+
+10:44:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:45:04 PM  73236340 682221512 717418564     90.74      5392 644397432  66453048      8.38 215032028 494789720         0
+
+10:45:04 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:46:04 PM     all      1.38      0.00      0.03      0.00      0.00     98.59
+
+10:45:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:46:04 PM  73237968 682223140 717416936     90.74      5392 644397432  66366040      8.37 215032032 494789780         4
+
+10:46:04 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:47:04 PM     all      1.39      0.00      0.02      0.00      0.00     98.59
+
+10:46:04 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+10:47:04 PM  73235912 682221084 717418992     90.74      5392 644397440  66322040      8.37 215032036 494789744         4

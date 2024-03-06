@@ -33,3 +33,4 @@ Selected features saved to: /nas/longleaf/home/aryonna/488-team-assignment-2/dat
 [CV] END max_depth=20, max_features=sqrt, min_samples_split=2, n_estimators=150; total time= 3.5min
 [CV] END max_depth=20, max_features=sqrt, min_samples_split=5, n_estimators=150; total time= 3.5min
 [CV] END max_depth=20, max_features=sqrt, min_samples_split=2, n_estimators=150; total time= 3.7min
+slurmstepd: error: *** JOB 32496713 ON c0305 CANCELLED AT 2024-03-05T22:47:40 ***
