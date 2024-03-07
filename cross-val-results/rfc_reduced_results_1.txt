@@ -1,0 +1,7 @@
+Fold 1 Accuracy: 0.8198
+Fold 2 Accuracy: 0.8207
+Fold 3 Accuracy: 0.8213
+Fold 4 Accuracy: 0.8211
+Fold 5 Accuracy: 0.8199
+
+Average Accuracy: 0.8206 ± 0.0006

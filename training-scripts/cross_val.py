@@ -7,8 +7,8 @@ from sklearn.ensemble import RandomForestClassifier  # Changed from RandomForest
 # Paths remain unchanged
 X_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/raw_data/features.joblib'
 y_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/raw_data/target.joblib'
-model_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/models/rfc_reduced_data.joblib'  # Ensure this is a classifier model
-results_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/cross-val-results/rfc_reduced_results.txt'
+model_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/models/rfc_reduced_data_1.joblib'  # Ensure this is a classifier model
+results_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/cross-val-results/rfc_reduced_results_1.txt'
 
 # Load your dataset
 print("Begin load data")
