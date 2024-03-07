@@ -2,3 +2,4 @@ data/*
 !data/.gitkeep
 488env/
 *.joblib
+__pycache__/
