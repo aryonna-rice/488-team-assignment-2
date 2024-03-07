@@ -67,7 +67,7 @@ selected_features_names = [X_train.columns[i] for i in selected_features_indices
 
 # Save the selected feature names or indices
 # Adjust this path and file name as necessary
-features_path = '/nas/longleaf/home/aryonna/488-team-assignment-2/data/selected_features.json'
+features_path = '../data/selected_features.json'
 with open(features_path, 'w') as f:
     json.dump(selected_features_names, f)  # Save names if X_train is a DataFrame, else save selected_features_indices
 
